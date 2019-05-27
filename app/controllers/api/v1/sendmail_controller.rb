@@ -4,8 +4,9 @@ class Api::V1::SendmailController < ApplicationController
   def create
     body = JSON.parse(request.body.read)
     if send_mail(body["phone_number"], body["link"])
+      render json: {success: "Sent!!"}
     else
-      flash[:error] = "Mail could not be sent!!"
+      render json: {error: 'Could not sent!!'}
     end
   end
 
