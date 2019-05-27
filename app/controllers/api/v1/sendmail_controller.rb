@@ -6,7 +6,7 @@ class Api::V1::SendmailController < ApplicationController
     if send_mail(body["phone_number"], body["link"])
       render json: {success: "Sent!!"}
     else
-      render json: {error: 'Could not sent!!'}
+      render json: {error: 'Not sent!!'}
     end
   end
 
